@@ -31,6 +31,9 @@ public class ProfileActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.recyclerView);
         searchView=findViewById(R.id.searchView);
 
+        searchView.setIconified(false);
+        searchView.clearFocus();
+
         for (int i = 0; i < AutoList.length; i++){
             ModelClass modelClass =new ModelClass();
             modelClass.setAutoName(AutoList[i]);
@@ -53,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 if (query.length()>0){
                     for (int i =0; i<arrayList.size();i++ ){
-                        if (arrayList.get(i).getAutoName().toUpperCase().contains(query.toUpperCase())){
+                        if (arrayList.get(i).getAutoName().toUpperCase().contains(query.toUpperCase()) || arrayList.get(i).getAutoNum().toUpperCase().contains(query.toUpperCase())){
 
                             ModelClass modelClass=new ModelClass();
                             modelClass.setAutoName(arrayList.get(i).getAutoName());
@@ -88,7 +91,7 @@ public class ProfileActivity extends AppCompatActivity {
                 searchList=new ArrayList<>();
                 if (newText.length()>0){
                     for (int i =0; i<arrayList.size();i++ ){
-                        if (arrayList.get(i).getAutoName().toUpperCase().contains(newText.toUpperCase())){
+                        if (arrayList.get(i).getAutoName().toUpperCase().contains(newText.toUpperCase()) || arrayList.get(i).getAutoNum().toUpperCase().contains(newText.toUpperCase())){
 
                             ModelClass modelClass=new ModelClass();
                             modelClass.setAutoName(arrayList.get(i).getAutoName());
